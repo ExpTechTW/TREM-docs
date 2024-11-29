@@ -38,14 +38,14 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/NKUST-iOS-Club/docs/tree/main/",
+          editUrl: "https://github.com/ExpTechTW/TREM-docs",
           editLocalizedFiles: true,
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/NKUST-iOS-Club/docs/tree/main/",
+          editUrl: "https://github.com/ExpTechTW/TREM-docs",
           editLocalizedFiles: true,
         },
         theme: {
