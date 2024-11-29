@@ -1,3 +1,3 @@
-# NKUST iOS Club Documentation
+# TREM Docs Documentation
 
-這裡是 NKUST iOS Club 的原始碼儲存庫
+這裡是 TREM Docs 的原始碼儲存庫
