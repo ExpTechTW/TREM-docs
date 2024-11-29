@@ -3,19 +3,19 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
-  title: "NKUST iOS Club",
-  tagline: "NKUST iOS Club",
+  title: "TREM Docs",
+  tagline: "TREM Docs",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: "https://NKUST-iOS-Club.github.io",
+  url: "https://exptechtw.github.io",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "NKUST-iOS-Club", // Usually your GitHub org/user name.
+  organizationName: "ExpTechTW", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
 
   onBrokenLinks: "throw",
@@ -59,20 +59,20 @@ const config: Config = {
     // Replace with your project's social card
     // image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: "NKUST iOS Club",
+      title: "TREM Docs",
       logo: {
-        alt: "NKUST iOS Club Logo",
+        alt: "TREM Docs Logo",
         src: "img/logo.svg",
       },
       items: [
         {
           type: "docSidebar",
-          sidebarId: "cdpsSidebar",
+          sidebarId: "tremSidebar",
           position: "left",
           label: "Swift",
         },
         {
-          href: "https://github.com/NKUST-iOS-Club/docs",
+          href: "https://github.com/ExpTechTW/TREM-Docs",
           label: "GitHub",
           position: "right",
         },
@@ -86,11 +86,11 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "技術文件",
+          title: "TREM",
           items: [
             {
-              label: "Swift",
-              to: "/docs/swift/start/",
+              label: "trem",
+              to: "/docs/trem/start/",
             },
           ],
         },
@@ -99,7 +99,7 @@ const config: Config = {
           items: [
             {
               label: "Discord",
-              href: "https://discord.gg/pdYbhFBAj8",
+              href: "https://exptech.com.tw/dc",
             },
           ],
         },
@@ -112,7 +112,7 @@ const config: Config = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/NKUST-iOS-Club",
+              href: "https://github.com/ExpTechTW",
             },
           ],
         },
