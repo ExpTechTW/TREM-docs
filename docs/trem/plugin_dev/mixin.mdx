@@ -16,15 +16,10 @@ TREM.class.ReportManager 的原生 refresh 方法。
 
 ```js
 async refresh() {
-  console.log(user);
-  const url =
-    TREM.constant.URL.API[
-      Math.floor(Math.random() * TREM.constant.URL.API.length)
-    ];
+  console.log(user); // 在不注入的清況下會報錯(搭配下方基本注入)
+  const url = TREM.constant.URL.API[Math.floor(Math.random() * TREM.constant.URL.API.length)];
   const reportList = await this.getReport(url);
-  if (!reportList) {
-    return;
-  }
+  if (!reportList) return;
 }
 ```
 
