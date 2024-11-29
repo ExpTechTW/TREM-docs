@@ -4,7 +4,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
   title: "TREM Docs",
-  tagline: "TREM Docs",
+  tagline: "TREM 技術文件",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -69,7 +69,7 @@ const config: Config = {
           type: "docSidebar",
           sidebarId: "tremSidebar",
           position: "left",
-          label: "Swift",
+          label: "TREM",
         },
         {
           href: "https://github.com/ExpTechTW/TREM-Docs",
@@ -86,10 +86,10 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "TREM",
+          title: "文件",
           items: [
             {
-              label: "trem",
+              label: "TREM",
               to: "/docs/trem/start/",
             },
           ],
