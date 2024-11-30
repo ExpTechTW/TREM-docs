@@ -7,27 +7,18 @@ const config: Config = {
   tagline: "TREM 技術文件",
   favicon: "img/favicon.ico",
 
-  // Set the production url of your site here
   url: "https://exptechtw.github.io",
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/TREM-docs/",
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: "ExpTechTW", // Usually your GitHub org/user name.
-  projectName: "docs", // Usually your repo name.
+  organizationName: "ExpTechTW",
+  projectName: "TREM-docs",
 
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "throw",
   onDuplicateRoutes: "throw",
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: "zh-Hant",
-    locales: ["en", "zh-Hant", "ja"],
+    locales: ["en", "zh-Hant"],
   },
 
   presets: [
@@ -36,15 +27,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/ExpTechTW/TREM-docs/tree/main",
           editLocalizedFiles: true,
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/ExpTechTW/TREM-docs/tree/main",
           editLocalizedFiles: true,
         },
@@ -56,8 +43,6 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    // image: 'img/docusaurus-social-card.jpg',
     navbar: {
       title: "TREM Docs",
       logo: {
