@@ -20,6 +20,8 @@ example/
 
 擴充套件的入口點
 
+### Class 形式
+
 ```js
 class Plugin {
   #ctx;
@@ -34,6 +36,16 @@ class Plugin {
 }
 
 module.exports = Plugin;
+```
+
+### Function 形式
+
+```js
+module.exports = function (ctx) {
+  ctx.on("load", () => {
+    const { TREM, logger, MixinManager } = ctx;
+  });
+};
 ```
 
 ## info.json
