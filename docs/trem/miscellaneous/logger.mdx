@@ -3,3 +3,17 @@ sidebar_position: 4
 ---
 
 # 日誌紀錄
+
+主視窗 logger 實例，有 `debug`、`info`、`warn`、`error` 四種等級。
+
+:::tip
+支援 `logger.info("info", 123, false);` 用法。
+:::
+
+```js
+const { TREM, Logger, logger, MixinManager } = this.#ctx;
+logger.debug("debug");
+logger.info("info");
+logger.warn("warn");
+logger.error("error");
+```
