@@ -57,6 +57,10 @@ const config: Config = {
           label: "TREM",
         },
         {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
           href: "https://github.com/ExpTechTW/TREM-Docs",
           label: "GitHub",
           position: "right",
