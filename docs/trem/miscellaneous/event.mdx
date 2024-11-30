@@ -13,3 +13,19 @@ sidebar_position: 6
 :::
 
 ## 用法
+
+事件發射
+
+```js
+const emit = (event, data) => TREM.variable.events.emit(event, data);
+emit("test", { data: "test" });
+```
+
+事件接收
+
+```js
+const event = (event, callback) => TREM.variable.events.on(event, callback);
+event("test", (data) => {
+  console.log(data); // { data: "test" }
+});
+```
