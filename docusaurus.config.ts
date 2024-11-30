@@ -79,7 +79,7 @@ const config: Config = {
           items: [
             {
               label: "TREM",
-              to: "/docs/trem/start/",
+              to: "/docs",
             },
           ],
         },
