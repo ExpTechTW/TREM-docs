@@ -18,7 +18,7 @@ const config: Config = {
 
   i18n: {
     defaultLocale: "zh-Hant",
-    locales: ["en", "zh-Hant"],
+    locales: ["zh-Hant", "en"],
   },
 
   presets: [
@@ -56,10 +56,10 @@ const config: Config = {
           position: "left",
           label: "技術文件",
         },
-        {
-          type: "localeDropdown",
-          position: "right",
-        },
+        // {
+        //   type: "localeDropdown",
+        //   position: "right",
+        // },
         {
           href: "https://github.com/ExpTechTW/TREM-Docs",
           label: "GitHub",
@@ -102,7 +102,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} ExpTech Studio. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ExpTech Studio.`,
     },
     prism: {
       theme: prismThemes.oneLight,
