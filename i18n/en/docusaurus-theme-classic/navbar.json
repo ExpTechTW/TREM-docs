@@ -1,15 +1,15 @@
 {
   "title": {
-    "message": "ExpTech Documentation",
+    "message": "TREM Lite",
     "description": "The title in the navbar"
   },
   "logo.alt": {
-    "message": "ExpTech Logo",
+    "message": "TREM Lite Logo",
     "description": "The alt text of navbar logo"
   },
-  "item.label.CDPS": {
-    "message": "CDPS",
-    "description": "Navbar item with label CDPS"
+  "item.label.技術文件": {
+    "message": "技術文件",
+    "description": "Navbar item with label 技術文件"
   },
   "item.label.GitHub": {
     "message": "GitHub",
