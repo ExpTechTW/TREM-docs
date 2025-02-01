@@ -18,4 +18,13 @@ example/
 
 ## 方法
 
-將資料夾壓縮為 `擴充名稱.zip` 並將副檔名改為 `.trem` 得到 `擴充名稱.trem` 。
+建立 數位簽章 `signature.json` 檔案並打包成 `擴充名稱.trem` 檔案
+
+```
+npx github:ExpTechTW/TREM-Plugin-Signer sign . && npx github:ExpTechTW/TREM-Plugin-Packer
+```
+
+:::warning
+需要有數位簽章 `signature.json` 檔案，才能夠在 TREM-Lite 啟用擴充。
+:::
+

@@ -1,0 +1,155 @@
+---
+sidebar_position: 7
+---
+
+# 擴充倉庫
+
+將自己製作的擴充套件放置在倉庫內，並使用 workflow 自動 pr 到 trem-plugin 倉庫。
+
+## 文件結構
+
+```
+plugin/
+    index.js
+    info.json
+
+.github/
+    workflows/
+        auto-pr-info.yml
+```
+
+## index.js
+
+擴充套件的入口點
+
+### Class 形式
+
+
+```js
+class Plugin {
+  #ctx;
+
+  constructor(ctx) {
+    this.#ctx = ctx;
+  }
+
+  onLoad() {
+    const { TREM, logger, MixinManager } = this.#ctx;
+  }
+}
+
+module.exports = Plugin;
+```
+
+### Function 形式
+
+```js
+module.exports = function (ctx) {
+  ctx.on("load", () => {
+    const { TREM, logger, MixinManager } = ctx;
+  });
+};
+```
+
+## info.json
+
+定義擴充資訊的文件
+
+```json
+{
+  "version": "1.0.0", // 擴充版本
+  "description": {
+    "zh_tw": "TREM 範例擴充" // 擴充說明
+  },
+  "author": [
+    "YuYu1015" // 擴充作者
+  ],
+  "dependencies": {
+    "trem": ">=3.0.0" // 擴充所需的 TREM 最低版本
+  },
+  "resources": [
+    "AGPL-3.0" // 擴充的開源協議
+  ],
+  "link": "https://github.com/ExpTechTW/TREM-Lite" // 擴充 的 GitHub Link
+}
+```
+
+## auto-pr-info.yml
+
+自動 pr 到 trem-plugin 倉庫的 workflow
+
+```yml
+name: Auto PR to infos folder
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "info.json"
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          path: source-repo
+
+      - name: Get filename from info.json
+        id: get-filename
+        run: |
+          cd source-repo
+          BASE_NAME=$(jq -r '.name' info.json)
+          FILENAME="${BASE_NAME}.json"
+          echo "filename=$FILENAME" >> $GITHUB_OUTPUT
+          echo "branch_name=update-file-$(date +%s)" >> $GITHUB_OUTPUT
+          cp info.json ../target.json
+
+      - name: Checkout target repository
+        uses: actions/checkout@v4
+        with:
+          repository: ExpTechTW/TREM-Plugins
+          token: ${{ secrets.PAT_TOKEN }}
+          path: target-repo
+
+      - name: Copy and commit file
+        run: |
+          mkdir -p target-repo/infos
+          mv target.json "target-repo/infos/${{ steps.get-filename.outputs.filename }}"
+          cd target-repo
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          BRANCH_NAME="${{ steps.get-filename.outputs.branch_name }}"
+          git checkout -b $BRANCH_NAME
+          git add infos
+          if ! git diff --cached --quiet; then
+            git commit -m "Update ${{ steps.get-filename.outputs.filename }}"
+            git push origin $BRANCH_NAME
+          else
+            echo "No changes to commit."
+            exit 0
+          fi
+
+      - name: Create Pull Request
+        if: success()
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          pr_url=$(gh pr create \
+            --repo ExpTechTW/TREM-Plugins \
+            --base main \
+            --head ${{ steps.get-filename.outputs.branch_name }} \
+            --title "Update ${{ steps.get-filename.outputs.filename }}" \
+            --body "Automated update from plugin repository" \
+            --label "auto-merge")
+          echo "Created PR: $pr_url"
+```
+# 備註
+
+只有在 info.json 有變更時，才會觸發 workflow。
+
+:::warning
+需要先建立 Releases 在 push 更新到倉庫，不然 pr 時會失敗。
+:::
