@@ -3,8 +3,8 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
-  title: "TREM Docs",
-  tagline: "TREM 技術文件",
+  title: "TREM Lite",
+  tagline: "TREM Lite 技術文件",
   favicon: "img/favicon.ico",
 
   url: "https://exptechtw.github.io",
@@ -44,25 +44,25 @@ const config: Config = {
 
   themeConfig: {
     navbar: {
-      title: "TREM Docs",
+      title: "TREM Lite",
       logo: {
-        alt: "TREM Docs Logo",
-        src: "img/logo.svg",
+        alt: "TREM Lite Logo",
+        src: "img/trem-lite.png",
       },
       items: [
         {
           type: "docSidebar",
           sidebarId: "tremSidebar",
           position: "left",
-          label: "TREM",
+          label: "技術文件",
+        },
+        {
+          type: "localeDropdown",
+          position: "right",
         },
         {
           href: "https://github.com/ExpTechTW/TREM-Docs",
           label: "GitHub",
-          position: "right",
-        },
-        {
-          type: "localeDropdown",
           position: "right",
         },
       ],
